@@ -1,0 +1,29 @@
+<br />
+<div class="container">
+  <h1>Reactive Form</h1>
+  <!-- form control -->
+  <!-- <div class="form-group">
+        <label for="name">Name: </label>
+        <input id="name" type="text" [formControl]="name">
+    </div> -->
+  <!-- <p>Value: {{ name.value }}</p> -->
+  <!-- <button (click)="updateName()">Update Name</button> -->
+  <!-- form-group -->
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="first-name">Name: </label>
+    <input id="first-name" type="text" formControlName="name" required />
+    <span *ngIf="profileForm.controls.name.invalid">invalid</span>
+    <br />
+    <label for="last-name">Age: </label>
+    <input id="last-name" type="text" formControlName="age" />
+    <span *ngIf="profileForm.controls.age.invalid">invalid</span>
+    <br />
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!profileForm.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+<h1>Hello World</h1>
+<h3 class="overAge">Chào bạn {{ name | uppercase }}</h3>
+<h3>Tôi năm nay {{ age | number: "1.0-2" |currency }} tuổi</h3>
+
+<span 
+*ngIf="age < 18;then TrueCondition;else FalseCondition;"
+ class="underAge">
+</span>
+<br />
+<ng-template #TrueCondition class="underAge"><span MyBold>Bạn dưới 18 tuổi</span></ng-template>
+<ng-template #FalseCondition class="overAge">Bạn trên 18 tuổi</ng-template>
+
+<!-- <span *ngIf="age < 18" class="underAge">Bạn dưới 18 tuổi</span>
+<br />
+<span *ngIf="age >= 18" class="overAge">Bạn trên 18 tuổi</span> -->
+<br /><br />
+<!-- khi nhap vao no auto gan vao name trong obj -->
+<input type="text" [(ngModel)]="name" />
+<br/>
+<button (click)="tangtuoi()">Tăng tuổi</button>
+<br /><br />
+Danh sách xe:<br />
+<div *ngFor="let vehicle of vehicles">
+  <li>{{ vehicle }}</li>
+</div>
+<br />
+<div>
+  <select>
+    <option *ngFor="let vehicle of vehicles">
+      {{ vehicle }}
+    </option>
+  </select>
+</div>
+<h3>
+  Chào Bạn
+  <span class="overAge">{{name}}</span>
+  thêm lần nữa
+</h3>
